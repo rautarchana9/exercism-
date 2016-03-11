@@ -10,7 +10,6 @@ class Bst
       insert_right(num)
     end
   end
-
   def insert_left(num)
     if left
       left.insert(num)
@@ -23,6 +22,15 @@ class Bst
       right.insert(num)
     else
       @right = Bst.new(num)
+    end
+  end
+  def each(&block)
+    if left 
+    left.each(&block)
+    end
+    yield data
+    if right
+      right.each(&block)
     end
   end
 end
